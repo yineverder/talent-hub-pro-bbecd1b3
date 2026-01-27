@@ -16,10 +16,17 @@ const mockCandidateDetails = {
   phone: "+56 9 1234 5678",
   experience: "8 años",
   skills: ["React", "TypeScript", "Node.js", "AWS", "GraphQL", "Docker", "PostgreSQL"],
+  softSkills: ["Liderazgo", "Comunicación efectiva", "Trabajo en equipo", "Resolución de problemas", "Adaptabilidad"],
   bio: "Desarrolladora apasionada con más de 8 años de experiencia liderando equipos de desarrollo frontend. Especializada en arquitecturas escalables y experiencia de usuario. He liderado proyectos para empresas Fortune 500 en LATAM.",
   rating: 4.9,
   projects: 47,
   verified: true,
+  projectHistory: [
+    { name: "Banco Estado - App Móvil", role: "Tech Lead Frontend", duration: "2023 - 2024 (1 año)" },
+    { name: "Falabella Retail - E-commerce", role: "Senior Developer", duration: "2021 - 2023 (2 años)" },
+    { name: "Entel - Portal Clientes", role: "Frontend Developer", duration: "2019 - 2021 (2 años)" },
+  ],
+  monthlyCost: 4500,
 };
 
 const Index = () => {

@@ -1,7 +1,13 @@
-import { X, MapPin, Mail, Phone, Linkedin, Github, Download, CheckCircle2, Star } from "lucide-react";
+import { X, MapPin, Mail, Phone, Linkedin, Github, Download, CheckCircle2, Star, Briefcase, DollarSign, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+
+interface Project {
+  name: string;
+  role: string;
+  duration: string;
+}
 
 interface QuickViewPanelProps {
   isOpen: boolean;
@@ -15,10 +21,13 @@ interface QuickViewPanelProps {
     phone: string;
     experience: string;
     skills: string[];
+    softSkills: string[];
     bio: string;
     rating: number;
     projects: number;
     verified: boolean;
+    projectHistory: Project[];
+    monthlyCost: number;
   };
 }
 
@@ -96,21 +105,77 @@ export function QuickViewPanel({ isOpen, onClose, candidate }: QuickViewPanelPro
             </div>
           </div>
 
-          {/* Bio */}
+          {/* Summary / Bio */}
           <div className="mb-6">
-            <h3 className="text-sm font-semibold text-foreground mb-2">Acerca de</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{candidate.bio}</p>
+            <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+              <Users className="w-4 h-4 text-kibernum-primary" />
+              Resumen Profesional
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed bg-secondary/30 p-3 rounded-xl border border-border/50">
+              {candidate.bio}
+            </p>
           </div>
 
-          {/* Skills */}
+          {/* Technical Skills */}
           <div className="mb-6">
             <h3 className="text-sm font-semibold text-foreground mb-2">Tecnologías</h3>
             <div className="flex flex-wrap gap-2">
               {candidate.skills.map((skill) => (
-                <Badge key={skill} variant="secondary" className="bg-secondary/80">
+                <Badge key={skill} variant="secondary" className="bg-kibernum-primary/10 text-kibernum-primary border border-kibernum-primary/20">
                   {skill}
                 </Badge>
               ))}
+            </div>
+          </div>
+
+          {/* Soft Skills */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+              <Heart className="w-4 h-4 text-kibernum-info" />
+              Habilidades Blandas
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {candidate.softSkills.map((skill) => (
+                <Badge key={skill} variant="secondary" className="bg-kibernum-info/10 text-kibernum-info border border-kibernum-info/20">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Project History */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+              <Briefcase className="w-4 h-4 text-kibernum-success" />
+              Proyectos Anteriores
+            </h3>
+            <div className="space-y-3">
+              {candidate.projectHistory.map((project, index) => (
+                <div key={index} className="bg-secondary/30 p-3 rounded-xl border border-border/50">
+                  <p className="font-medium text-foreground text-sm">{project.name}</p>
+                  <p className="text-xs text-muted-foreground">{project.role}</p>
+                  <p className="text-xs text-kibernum-primary mt-1">{project.duration}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Cost Estimate */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+              <DollarSign className="w-4 h-4 text-kibernum-warning" />
+              Costo de Contratación
+            </h3>
+            <div className="bg-kibernum-warning/10 border border-kibernum-warning/30 rounded-xl p-4">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-bold text-foreground">
+                  ${candidate.monthlyCost.toLocaleString()}
+                </span>
+                <span className="text-sm text-muted-foreground">USD / mes</span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                *Tarifa estimada. Consulte con su ejecutivo de cuenta para detalles.
+              </p>
             </div>
           </div>
 
