@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, ExternalLink, CheckCircle2, Calendar } from "lucide-react";
+import { MapPin, Clock, Eye, CheckCircle2, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface TalentCardProps {
@@ -181,7 +181,7 @@ export function TalentCard({
           className="rounded-xl text-muted-foreground hover:text-foreground"
           onClick={onView}
         >
-          <ExternalLink className="w-4 h-4" />
+          <Eye className="w-4 h-4" />
         </Button>
       </div>
     </div>
