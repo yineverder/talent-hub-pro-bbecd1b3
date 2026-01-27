@@ -1,43 +1,27 @@
-import { Users, Clock, CheckCircle2, TrendingUp } from "lucide-react";
+import { Users, Clock } from "lucide-react";
 
 const stats = [
   {
-    label: "Talento Disponible",
+    label: "Candidatos Disponibles",
     value: "247",
     change: "+12%",
     positive: true,
     icon: Users,
-    color: "kibernum-cyan",
+    color: "kibernum-primary",
   },
   {
-    label: "Asignación Inmediata",
-    value: "38",
-    change: "+5",
-    positive: true,
-    icon: Clock,
-    color: "kibernum-green",
-  },
-  {
-    label: "Contrataciones este mes",
-    value: "15",
-    change: "+23%",
-    positive: true,
-    icon: CheckCircle2,
-    color: "kibernum-purple",
-  },
-  {
-    label: "Tiempo promedio",
+    label: "Tiempo Promedio de Contratación",
     value: "2.3 días",
     change: "-18%",
     positive: true,
-    icon: TrendingUp,
-    color: "kibernum-orange",
+    icon: Clock,
+    color: "kibernum-success",
   },
 ];
 
 export function StatsCards() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {stats.map((stat, index) => (
         <div
           key={stat.label}
