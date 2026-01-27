@@ -61,6 +61,12 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         kibernum: {
+          DEFAULT: "hsl(var(--kibernum-default))",
+          primary: "hsl(var(--kibernum-primary))",
+          info: "hsl(var(--kibernum-info))",
+          success: "hsl(var(--kibernum-success))",
+          warning: "hsl(var(--kibernum-warning))",
+          /* Legacy aliases */
           blue: "hsl(var(--kibernum-blue))",
           "blue-light": "hsl(var(--kibernum-blue-light))",
           cyan: "hsl(var(--kibernum-cyan))",
@@ -79,7 +85,11 @@ export default {
       boxShadow: {
         glass: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
         "glass-lg": "0 12px 40px 0 rgba(0, 0, 0, 0.45)",
-        glow: "0 0 20px hsl(var(--kibernum-cyan) / 0.3)",
+        glow: "0 0 20px hsl(var(--kibernum-primary) / 0.4)",
+        "glow-success": "0 0 20px hsl(var(--kibernum-success) / 0.4)",
+        "glow-warning": "0 0 20px hsl(var(--kibernum-warning) / 0.4)",
+        "glow-info": "0 0 20px hsl(var(--kibernum-info) / 0.4)",
+        /* Legacy */
         "glow-green": "0 0 20px hsl(var(--kibernum-green) / 0.3)",
         "glow-orange": "0 0 20px hsl(var(--kibernum-orange) / 0.3)",
       },

@@ -6,89 +6,96 @@
 
 @layer base {
   :root {
-    /* Kibernum Brand Colors */
-    --background: 222 47% 8%;
-    --foreground: 210 40% 98%;
+    /* Kibernum Brand Colors - Dark Mode */
+    --background: 188 98% 8%;
+    --foreground: 168 18% 92%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 188 70% 12%;
+    --card-foreground: 168 18% 95%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 188 70% 12%;
+    --popover-foreground: 168 18% 95%;
 
-    --primary: 188 94% 43%;
-    --primary-foreground: 222 47% 8%;
+    --primary: 188 98% 15%;
+    --primary-foreground: 168 18% 95%;
 
-    --secondary: 222 30% 18%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 188 50% 18%;
+    --secondary-foreground: 168 18% 92%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 188 40% 15%;
+    --muted-foreground: 168 18% 60%;
 
-    --accent: 160 84% 39%;
-    --accent-foreground: 222 47% 8%;
+    --accent: 108 32% 76%;
+    --accent-foreground: 188 98% 10%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 168 18% 95%;
 
-    --border: 222 30% 20%;
-    --input: 222 30% 20%;
-    --ring: 188 94% 43%;
+    --border: 188 40% 20%;
+    --input: 188 40% 20%;
+    --ring: 188 98% 15%;
 
     --radius: 1rem;
 
-    /* Custom Kibernum Colors */
-    --kibernum-blue: 222 47% 8%;
-    --kibernum-blue-light: 222 40% 15%;
-    --kibernum-cyan: 188 94% 43%;
-    --kibernum-green: 160 84% 39%;
-    --kibernum-orange: 24 94% 53%;
-    --kibernum-purple: 270 70% 60%;
+    /* Custom Kibernum Brand Colors */
+    --kibernum-default: 168 18% 82%;
+    --kibernum-primary: 188 98% 15%;
+    --kibernum-info: 262 35% 75%;
+    --kibernum-success: 108 32% 76%;
+    --kibernum-warning: 45 100% 51%;
+    
+    /* Legacy aliases for compatibility */
+    --kibernum-blue: 188 98% 15%;
+    --kibernum-blue-light: 188 70% 25%;
+    --kibernum-cyan: 188 98% 25%;
+    --kibernum-green: 108 32% 76%;
+    --kibernum-orange: 45 100% 51%;
+    --kibernum-purple: 262 35% 75%;
     
     /* Glassmorphism */
-    --glass-bg: 222 47% 12% / 0.6;
-    --glass-border: 222 30% 25% / 0.3;
+    --glass-bg: 188 70% 12% / 0.6;
+    --glass-border: 188 40% 25% / 0.3;
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
     /* Sidebar */
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 210 40% 80%;
-    --sidebar-primary: 188 94% 43%;
-    --sidebar-primary-foreground: 222 47% 8%;
-    --sidebar-accent: 222 30% 15%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 15%;
-    --sidebar-ring: 188 94% 43%;
+    --sidebar-background: 188 98% 6%;
+    --sidebar-foreground: 168 18% 80%;
+    --sidebar-primary: 188 98% 15%;
+    --sidebar-primary-foreground: 168 18% 95%;
+    --sidebar-accent: 188 50% 15%;
+    --sidebar-accent-foreground: 168 18% 95%;
+    --sidebar-border: 188 40% 15%;
+    --sidebar-ring: 188 98% 15%;
   }
 
   .light {
-    --background: 0 0% 98%;
-    --foreground: 222 47% 11%;
+    --background: 168 18% 96%;
+    --foreground: 188 98% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 188 98% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 188 98% 15%;
 
-    --primary: 188 94% 40%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 188 98% 15%;
+    --primary-foreground: 168 18% 95%;
 
-    --secondary: 222 20% 94%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 168 18% 90%;
+    --secondary-foreground: 188 98% 15%;
 
-    --muted: 222 20% 94%;
-    --muted-foreground: 222 20% 45%;
+    --muted: 168 18% 88%;
+    --muted-foreground: 188 50% 35%;
 
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 108 32% 76%;
+    --accent-foreground: 188 98% 10%;
 
-    --border: 222 20% 88%;
-    --input: 222 20% 88%;
-    --ring: 188 94% 40%;
+    --border: 168 18% 82%;
+    --input: 168 18% 82%;
+    --ring: 188 98% 15%;
 
     --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 222 20% 88% / 0.5;
+    --glass-border: 168 18% 82% / 0.5;
   }
 }
 
