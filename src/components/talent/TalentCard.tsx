@@ -1,7 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Eye, CheckCircle2, Calendar } from "lucide-react";
+import { MapPin, Clock, Eye, CheckCircle2, Calendar, Sparkles, Tag } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ProfileIdenticon } from "./ProfileIdenticon";
 
 export interface TalentCardProps {
   id: string;
@@ -15,15 +16,26 @@ export interface TalentCardProps {
   availableIn?: number;
   matchScore?: number;
   verified?: boolean;
+  hasSpecialOffer?: boolean;
+  isAICertified?: boolean;
+  monthlyCostUF?: number;
   onView?: () => void;
   onAction?: () => void;
   animationDelay?: number;
 }
 
+// Get initials from name
+function getInitials(name: string): string {
+  const parts = name.split(" ");
+  if (parts.length >= 2) {
+    return `${parts[0][0]}.${parts[1][0]}.`;
+  }
+  return name.slice(0, 2).toUpperCase() + ".";
+}
+
 export function TalentCard({
   name,
   role,
-  avatar,
   location,
   experience,
   skills,
@@ -31,6 +43,9 @@ export function TalentCard({
   availableIn,
   matchScore,
   verified,
+  hasSpecialOffer,
+  isAICertified,
+  monthlyCostUF,
   onView,
   onAction,
   animationDelay = 0,
@@ -80,24 +95,29 @@ export function TalentCard({
 
   const badgeConfig = getBadgeConfig();
   const actionConfig = getActionButton();
+  const initials = getInitials(name);
 
   return (
     <div
-      className="glass-card-hover p-5 flex flex-col gap-4 opacity-0 animate-fade-in-up"
+      className="glass-card-hover p-5 flex flex-col gap-4 opacity-0 animate-fade-in-up relative"
       style={{ animationDelay: `${animationDelay}ms` }}
     >
+      {/* Special Offer Badge */}
+      {hasSpecialOffer && (
+        <div className="absolute -top-2 -right-2 z-10">
+          <Badge className="badge-special-offer flex items-center gap-1">
+            <Tag className="w-3 h-3" />
+            10% Off - 3 meses
+          </Badge>
+        </div>
+      )}
+
       {/* Header */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
-          {/* Avatar */}
+          {/* Avatar - Now using Identicon */}
           <div className="relative">
-            <div className="w-14 h-14 rounded-2xl overflow-hidden bg-secondary">
-              <img
-                src={avatar}
-                alt={name}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <ProfileIdenticon name={name} size="md" />
             {/* Status Indicator */}
             <span
               className={cn(
@@ -111,7 +131,7 @@ export function TalentCard({
 
           <div>
             <h3 className="font-semibold text-foreground flex items-center gap-2">
-              {name}
+              {initials}
               {verified && (
                 <CheckCircle2 className="w-4 h-4 text-kibernum-cyan" />
               )}
@@ -131,11 +151,20 @@ export function TalentCard({
         )}
       </div>
 
-      {/* Badge */}
-      <Badge className={cn("w-fit text-xs font-medium", badgeConfig.className)}>
-        <badgeConfig.icon className="w-3 h-3 mr-1" />
-        {badgeConfig.label}
-      </Badge>
+      {/* Badges Row */}
+      <div className="flex flex-wrap items-center gap-2">
+        <Badge className={cn("text-xs font-medium", badgeConfig.className)}>
+          <badgeConfig.icon className="w-3 h-3 mr-1" />
+          {badgeConfig.label}
+        </Badge>
+        
+        {isAICertified && (
+          <Badge className="badge-ai-certified flex items-center gap-1">
+            <Sparkles className="w-3 h-3" />
+            AI Certified
+          </Badge>
+        )}
+      </div>
 
       {/* Info */}
       <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -166,6 +195,14 @@ export function TalentCard({
           </Badge>
         )}
       </div>
+
+      {/* Cost in UF */}
+      {monthlyCostUF && (
+        <div className="text-sm text-muted-foreground">
+          <span className="font-semibold text-foreground">{monthlyCostUF} UF</span>
+          <span className="text-xs"> / mes</span>
+        </div>
+      )}
 
       {/* Actions */}
       <div className="flex items-center gap-2 mt-auto pt-2">

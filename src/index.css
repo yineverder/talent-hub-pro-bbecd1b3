@@ -102,6 +102,65 @@
 
     --glass-bg: 0 0% 100% / 0.7;
     --glass-border: 168 18% 82% / 0.5;
+    
+    /* Sidebar - Light Mode */
+    --sidebar-background: 188 98% 15%;
+    --sidebar-foreground: 0 0% 95%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 168 18% 95%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 168 18% 95%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 168 18% 95%;
+
+    --primary: 188 80% 45%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 168 18% 90%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 168 18% 60%;
+
+    --accent: 108 32% 45%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 188 80% 45%;
+
+    --glass-bg: 220 18% 14% / 0.9;
+    --glass-border: 220 15% 25%;
+    
+    /* Shadows for Dark Mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.25);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    
+    /* Sidebar - Dark Mode */
+    --sidebar-background: 220 18% 12%;
+    --sidebar-foreground: 168 18% 90%;
+    --sidebar-primary: 188 80% 45%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 168 18% 95%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 188 80% 45%;
+    
+    /* Brand colors adjusted for dark mode */
+    --kibernum-cyan: 188 80% 50%;
+    --kibernum-green: 108 45% 50%;
+    --kibernum-orange: 45 100% 55%;
+    --kibernum-purple: 262 45% 65%;
   }
 }
 
@@ -173,6 +232,20 @@
     background-color: hsl(var(--kibernum-info) / 0.15);
     color: hsl(var(--kibernum-info));
     border: 1px solid hsl(var(--kibernum-info) / 0.3);
+  }
+
+  .badge-special-offer {
+    @apply text-xs font-bold px-3 py-1 rounded-full;
+    background-color: hsl(0 84% 50%);
+    color: white;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .badge-ai-certified {
+    @apply text-xs font-semibold px-2.5 py-1 rounded-full;
+    background: linear-gradient(135deg, hsl(var(--kibernum-cyan)) 0%, hsl(var(--kibernum-info)) 100%);
+    color: white;
+    border: none;
   }
 
   /* Glow Effects */
