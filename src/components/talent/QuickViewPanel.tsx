@@ -1,4 +1,4 @@
-import { X, MapPin, Mail, Phone, Linkedin, Github, Download, CheckCircle2, Star, Briefcase, DollarSign, Users, Heart, Sparkles, MessageCircle, Calendar } from "lucide-react";
+import { X, MapPin, Mail, Phone, Linkedin, Github, Download, CheckCircle2, Star, Briefcase, DollarSign, Heart, Sparkles, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -63,13 +63,6 @@ export function QuickViewPanel({ isOpen, onClose, candidate }: QuickViewPanelPro
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
-  const handleScheduleInterview = () => {
-    const phoneNumber = "+56912345678"; // Placeholder number
-    const message = encodeURIComponent(
-      `Hola, me gustaría agendar una entrevista con el profesional ${initials} (${candidate.role}) disponible en KiberMatch.`
-    );
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
-  };
 
   return (
     <>
@@ -158,17 +151,6 @@ export function QuickViewPanel({ isOpen, onClose, candidate }: QuickViewPanelPro
                 </div>
               </div>
             )}
-
-            {/* Summary / Bio */}
-            <div className="mb-6">
-              <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                <Users className="w-4 h-4 text-kibernum-primary" />
-                Resumen Profesional
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed bg-secondary/30 p-3 rounded-xl border border-border/50">
-                {candidate.bio}
-              </p>
-            </div>
 
             {/* Technical Skills */}
             <div className="mb-6">
@@ -269,23 +251,13 @@ export function QuickViewPanel({ isOpen, onClose, candidate }: QuickViewPanelPro
 
         {/* Sticky Actions Footer */}
         <div className="absolute bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border p-4">
-          <div className="flex gap-3">
-            <Button 
-              className="flex-1 gradient-cyan text-primary-foreground rounded-xl gap-2"
-              onClick={handleWhatsAppContact}
-            >
-              <MessageCircle className="w-4 h-4" />
-              Contratar vía WhatsApp
-            </Button>
-            <Button 
-              variant="outline" 
-              className="flex-1 rounded-xl gap-2"
-              onClick={handleScheduleInterview}
-            >
-              <Calendar className="w-4 h-4" />
-              Agendar Entrevista
-            </Button>
-          </div>
+          <Button 
+            className="w-full gradient-green text-accent-foreground rounded-xl gap-2"
+            onClick={handleWhatsAppContact}
+          >
+            <MessageCircle className="w-4 h-4" />
+            Hablar con Ejecutivo
+          </Button>
         </div>
       </div>
     </>

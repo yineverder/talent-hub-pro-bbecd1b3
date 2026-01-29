@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
-import { StatsCards } from "@/components/dashboard/StatsCards";
 import { NaturalSearchBar } from "@/components/talent/NaturalSearchBar";
 import { TalentGrid } from "@/components/talent/TalentGrid";
 import { AIMatchWidget } from "@/components/talent/AIMatchWidget";
@@ -51,11 +50,6 @@ const Index = () => {
         <Header />
 
         <main className="p-8">
-          {/* Stats Section */}
-          <section className="mb-8">
-            <StatsCards />
-          </section>
-
           {/* Natural Language Search */}
           <section className="mb-8">
             <NaturalSearchBar value={searchQuery} onChange={setSearchQuery} />

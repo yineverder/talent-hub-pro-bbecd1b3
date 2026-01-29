@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Eye, CheckCircle2, Calendar, Sparkles, Tag } from "lucide-react";
+import { MapPin, Clock, Eye, CheckCircle2, Sparkles, Tag, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ProfileIdenticon } from "./ProfileIdenticon";
 
@@ -12,7 +12,7 @@ export interface TalentCardProps {
   location: string;
   experience: string;
   skills: string[];
-  availability: "immediate" | "verified" | "future";
+  availability: "immediate" | "15days" | "1month";
   availableIn?: number;
   matchScore?: number;
   verified?: boolean;
@@ -54,48 +54,36 @@ export function TalentCard({
     switch (availability) {
       case "immediate":
         return {
-          label: "Asignación Inmediata",
-          className: "badge-bench",
+          label: "Disponibilidad Inmediata",
+          className: "badge-immediate",
           icon: Clock,
         };
-      case "verified":
+      case "15days":
         return {
-          label: "Kibernum Verified",
-          className: "badge-external",
-          icon: CheckCircle2,
+          label: "Disponible en 15 días",
+          className: "badge-15days",
+          icon: Clock,
         };
-      case "future":
+      case "1month":
         return {
-          label: `Disponible en ${availableIn} días`,
-          className: "badge-anticipation",
-          icon: Calendar,
+          label: "Disponibilidad en 1 mes",
+          className: "badge-1month",
+          icon: Clock,
         };
     }
   };
 
-  const getActionButton = () => {
-    switch (availability) {
-      case "immediate":
-        return {
-          label: "Contratar Ahora",
-          className: "gradient-green text-accent-foreground hover:opacity-90",
-        };
-      case "verified":
-        return {
-          label: "Ver Perfil",
-          className: "gradient-cyan text-primary-foreground hover:opacity-90",
-        };
-      case "future":
-        return {
-          label: "Reservar Perfil",
-          className: "bg-kibernum-orange text-white hover:bg-kibernum-orange/90",
-        };
-    }
+  const handleWhatsAppContact = () => {
+    const phoneNumber = "+56912345678";
+    const message = encodeURIComponent(
+      `Hola, estoy interesado en el profesional ${initials} (${role}) disponible en KiberMatch. Me gustaría recibir más información.`
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
+
+  const initials = getInitials(name);
 
   const badgeConfig = getBadgeConfig();
-  const actionConfig = getActionButton();
-  const initials = getInitials(name);
 
   return (
     <div
@@ -123,8 +111,8 @@ export function TalentCard({
               className={cn(
                 "absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-card",
                 availability === "immediate" && "bg-kibernum-green",
-                availability === "verified" && "bg-kibernum-cyan",
-                availability === "future" && "bg-kibernum-orange"
+                availability === "15days" && "bg-kibernum-warning",
+                availability === "1month" && "bg-kibernum-info"
               )}
             />
           </div>
@@ -207,10 +195,11 @@ export function TalentCard({
       {/* Actions */}
       <div className="flex items-center gap-2 mt-auto pt-2">
         <Button
-          className={cn("flex-1 rounded-xl font-medium", actionConfig.className)}
-          onClick={onAction}
+          className="flex-1 rounded-xl font-medium gradient-green text-accent-foreground hover:opacity-90 gap-2"
+          onClick={handleWhatsAppContact}
         >
-          {actionConfig.label}
+          <MessageCircle className="w-4 h-4" />
+          Hablar con Ejecutivo
         </Button>
         <Button
           variant="ghost"
