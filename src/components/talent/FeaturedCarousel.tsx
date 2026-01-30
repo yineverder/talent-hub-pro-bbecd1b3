@@ -118,10 +118,10 @@ export function FeaturedCarousel({ onViewCandidate }: FeaturedCarouselProps) {
           {featuredCandidates.map((candidate) => (
             <CarouselItem key={candidate.id} className="pl-3 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
               <div className="featured-card p-4 flex flex-col gap-3 relative overflow-visible">
-                {/* Red Badge - Top Right */}
+                {/* Availability Badge - Top Right */}
                 <div className="absolute -top-2 -right-2 z-10">
                   <Badge className="featured-ribbon">
-                    {candidate.badgeType === "urgente" ? "URGENTE" : "OFERTA"}
+                    Disponibilidad Inmediata
                   </Badge>
                 </div>
 
