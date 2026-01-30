@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { NaturalSearchBar } from "@/components/talent/NaturalSearchBar";
+import { FeaturedCarousel } from "@/components/talent/FeaturedCarousel";
 import { TalentGrid } from "@/components/talent/TalentGrid";
 import { AIMatchWidget } from "@/components/talent/AIMatchWidget";
 import { QuickViewPanel } from "@/components/talent/QuickViewPanel";
@@ -51,9 +52,12 @@ const Index = () => {
 
         <main className="p-8">
           {/* Natural Language Search */}
-          <section className="mb-8">
+          <section className="mb-6">
             <NaturalSearchBar value={searchQuery} onChange={setSearchQuery} />
           </section>
+
+          {/* Featured Candidates Carousel */}
+          <FeaturedCarousel onViewCandidate={handleViewCandidate} />
 
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
