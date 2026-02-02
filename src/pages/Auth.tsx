@@ -164,29 +164,6 @@ export default function Auth() {
             </Button>
           </form>
 
-          {/* Divider */}
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-card px-3 text-muted-foreground">
-                O continúa con
-              </span>
-            </div>
-          </div>
-
-          {/* SSO Button */}
-          <Button
-            type="button"
-            variant="outline"
-            onClick={handleSSOLogin}
-            disabled={isLoading}
-            className="w-full h-12 border-border hover:bg-secondary/80 rounded-xl transition-all"
-          >
-            <Building2 className="w-5 h-5 mr-3 text-blue-500" />
-            <span className="font-medium">Microsoft Azure AD / Office 365</span>
-          </Button>
 
           {/* Security Footer */}
           <div className="pt-4 border-t border-border">
