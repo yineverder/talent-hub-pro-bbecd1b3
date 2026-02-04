@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Mail, Lock, Eye, EyeOff, Building2 } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -139,12 +139,12 @@ export default function Auth() {
 
             {/* Forgot Password Link */}
             <div className="text-right">
-              <button
-                type="button"
+              <Link
+                to="/password-recovery"
                 className="text-sm text-primary hover:text-primary/80 transition-colors"
               >
                 ¿Olvidé mi contraseña?
-              </button>
+              </Link>
             </div>
 
             {/* Sign In Button */}
