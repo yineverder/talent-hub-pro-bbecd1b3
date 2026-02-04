@@ -234,18 +234,6 @@ export function QuickViewPanel({ isOpen, onClose, candidate }: QuickViewPanelPro
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-2 mb-6">
-              <Button variant="outline" size="icon" className="rounded-xl">
-                <Linkedin className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-xl">
-                <Github className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-xl">
-                <Download className="w-4 h-4" />
-              </Button>
-            </div>
           </div>
         </div>
 
